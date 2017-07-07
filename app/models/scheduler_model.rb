@@ -46,18 +46,21 @@ def time_to_go(due_time)
    #p time
    hhmmss = time.split(":") #split hh mm ss into 3 elements
    #p hhmmss
+   for i in 0..2
+     hhmmss[i]=hhmmss[i].to_i
+   end
    days_to_go = date.split("-")[2].to_i      #grabbing only date
   
    if days_to_go> 1 
-       hhmmss[0]+= (days_to_go-1)*24
-       puts "hi"
+       hhmmss[0] += (days_to_go - 1)*24
+      # puts "hi"
    end
    
    #assuming it's within the same year and month
    # date value = amount of days left
    # time = hh:mm:ss
    
-   return hhmmss[0].to_i*60 + hhmmss[1].to_i      #should return the amount of minutes remaining
+   return hhmmss[0]*60 + hhmmss[1]      #should return the amount of minutes remaining
 end
 
 
