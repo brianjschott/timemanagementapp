@@ -49,6 +49,8 @@ def time_to_go(due_time)
    for i in 0..2
      hhmmss[i]=hhmmss[i].to_i
    end
+   #hhmmss.map!{|x| x.to_i}
+   
    days_to_go = date.split("-")[2].to_i      #grabbing only date
   
    if days_to_go> 1 
@@ -66,5 +68,20 @@ end
 
 tomorrow = Time.new(2017, 07, 07, 2, 2, 2, "+02:00")
 puts time_to_go(tomorrow.to_i)
+
+def hrs_mins_to_go(mins)
+    hrs = mins/60
+    if hrs>=24
+        days = hrs/24
+        hrs = hrs%24
+    else
+        days = 0
+    end
+   return [days, hrs, mins%60] 
+end
+
+p hrs_mins_to_go(1456)
+
+
 
 
